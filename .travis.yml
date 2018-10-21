@@ -1,0 +1,9 @@
+sudo: required
+services: 
+    - docker
+
+before_install:
+    - docker build -t istiaquem/docker-react -f Dockerfile.dev .
+
+script:
+     - docker un istiaquem/docker-react npm run test -- --coverage  
